@@ -35,9 +35,9 @@ await arweaveUploader.uploadAssets(filesToUpload, '/Users/andrew/web3/', 'index.
 ### Methods
 
 --- 
-##### init(`walletKeyFilepath`, `arweaveApiConfig`)
+##### init(`jwkOrWalletKeyFile`, `arweaveApiConfig`)
 
-- `walletKeyFilePath` (**required**): Absolute file path to arweave wallet key file
+- `jwkOrWalletKeyFile` (**required**): Absolute file path to arweave wallet key file
 - `arweaveApiConfig` (**optional**): Arweave API config object to use for Arweave connection. Defaults to following values:
 ```
 {

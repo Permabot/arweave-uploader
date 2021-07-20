@@ -62,14 +62,14 @@ export class ArweaveUploader {
         }
     };
 
-    async init(keyFilePath: string, arweaveApiConfig?: Partial<ArweaveApiConfig>) {
+    async init(jwkOrWalletKeyFile: string | any , arweaveApiConfig?: Partial<ArweaveApiConfig>)  : Arweave {
         const configuration: ArweaveApiConfig = {
             ...DEFAULT_CONFIG,
             ...arweaveApiConfig,
         };
 
         this.arweave = Arweave.init(configuration);
-        this.arweaveKey = await this.getKeyFromFile(keyFilePath);
+        this.arweaveKey = (typeof jwkOrWalletKeyFile === 'string') ? await this.getKeyFromFile(jwkOrWalletKeyFile) : jwkOrWalletKeyFile;
         this.initialized = true;
         return this.arweave;
     }
